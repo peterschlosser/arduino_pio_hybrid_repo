@@ -1,4 +1,5 @@
 
+
 # Hybrid Repository
 A hybrid repository of projects for Arduino IDE and PlatformIO using a single source code file set.
 
@@ -7,9 +8,9 @@ HOWTO: Sharing Source Files Between Arduino IDE and PlatformIO
 ## Overview
 The [Arduino IDE](https://www.arduino.cc/en/software/) is undeniably a valuable asset to the Arduino platform student, hobbyist and professional.  For those creating [GitHub](https://github.com/) repositories and sharing their code with others, offering the customary [Arduino IDE Sketch](https://docs.arduino.cc/learn/programming/sketches/) INO file makes their ideas and charity accessible to a majority of consumers.
 
-But the Arduino IDE has some limitations.  Among them, a single library folder shared across all projects.  As the number of projects grow, this eventually becomes an issue where the library for one project conflict with another.
+But the Arduino IDE has some limitations.  Among them, a single library folder shared across all projects.  As the number of projects grow, this eventually becomes an issue where the library for one project conflicts with another.
 
-For professionals seeking stricter coding practices of industry standards, improved organization, testing, and a more robust coding experience, many choose [Visual Studio Code](https://code.visualstudio.com/) using [PlatformIO](https://platformio.org/) for development and project management.  Among its features, is a per-project library model.
+For professionals seeking stricter coding standards, improved organization, testing, and a more robust coding experience, many choose [Visual Studio Code](https://code.visualstudio.com/) using [PlatformIO](https://platformio.org/) for development and project management.  Among its features, is a per-project library model.
 
 This repository demonstrates how to maintain a single code set for Arduino IDE, facilitating an open source and sharing philosophy, while giving the developer access to advanced tools using PlatformIO.
 
@@ -28,7 +29,7 @@ Generally, Arduino IDE makes it challenging to include files and libraries outsi
 |   README.md
 ```
 * `Arduino/`: the Arduino sketch and source code folder.
-* `Platform/`: the PlatformIO (PIO) workspace project folder.  Generally includes the source code contained in `Arduino/` with `#include` directives.
+* `PlatformIO/`: the PlatformIO (PIO) workspace project folder.  Generally includes the source code contained in `Arduino/` with `#include` directives.
 * `assets/`: Repository images and other assets.
 * `docs/`: Project documentation, including datasheets.
 * `LICENSE`: The project's license.
@@ -40,7 +41,7 @@ Given you're starting with an Arduino sketch you both want to share, and develop
 2. **[Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)** the repo to your workstation using the tool of your choice, such as [GitHub CLI](https://cli.github.com/), [GitHub Desktop](https://docs.github.com/en/desktop) to place the repo into the GitHub collection of your workstation.  For example,  `~/Documents/GitHub/WonderWidget/`
 	* For the purposes of this procedure, let us condense references and refer to the repo folder as `~/repo/`
 3. **Create** the `Arduino` folder inside the repo.  For example, `~/repo/Arduino`
-4. Copy/Create/Save-As the desired **Arduino IDE sketch** into the `~/repo/Arduino` folder.  One must take care to name both the INO file name to match the parent project folder name, because Arduino IDE likes that.
+4. Copy/Create/Save-As the desired **Arduino IDE sketch** into the `~/repo/Arduino/` folder.  One must take care to name both the INO file name to match the parent project folder name, because Arduino IDE likes that.
 	* to **Copy** an existing Arduino IDE project, copy the existing Arduino sketch you want to share to your repo's Arduino folder with (recommended) same name as the repo. Results in: `~/repo/Arduino/WonderWidget/WonderWidget.ino`
 	* to **Create** a new sketch, select `File > New Sketch` inside Arduino IDE, then select `File > Save As` to the name: `~/repo/Arduino/WonderWidget` which results in: `~/repo/Arduino/WonderWidget/WonderWidget.ino`
 	* to **Save-As** an existing Arduino IDE project, open the desired INO project in Arduino IDE, and select `File > Save As` to the name: `~/repo/Arduino/WonderWidget` which results in: `~/repo/Arduino/WonderWidget/WonderWidget.ino`
@@ -81,7 +82,7 @@ Given you're starting with an Arduino sketch you both want to share, and develop
 	* Users may push changes to their GitHub repository, and manage the project all within the local parent GitHub repository folder.
 * Arduino IDE
 	* As desired, users may open their sketches using the Arduino IDE by the `.ino` file located at: `~/repo/Arduino/WonderWidget/WonderWidget.ino`
-	* Libraries added through the IDE are generally added to the shared (across all projects) library folder located at `~/Documents/Arduino/libraries`
+	* Libraries added through the IDE are generally added to the shared (across all projects) library folder located at `~/Documents/Arduino/libraries/`
 	* The sketch may be built, uploaded, tested, debugged, and so forth, just as their other Arduino projects.
 * PlatformIO
 	* As desired, users may open their sketches using PlatformIO by the `.code-workspace` file located at: `~/repo/PlatformIO/WonderWidget/WonderWidget.code-workspace`
@@ -93,8 +94,8 @@ Given you're starting with an Arduino sketch you both want to share, and develop
 Not every project warrants structure within a GitHub Repository.  The hybrid project can still be used to manage sketches and code projects usable by both Arduino IDE and PlatformIO.
 These ideas presented here are just to get users started.  They're invited to modify things to better suit their needs.
 An alternate method involves grouping projects by their IDE of choice.  
-* Projects created by the Arduino IDE fall under the customary `~/Documents/Arduino` projects folder.
-* Projects created by PlatformIO would fall under its customary `~/Documents/PlatformIO` projects folder.
+* Projects created by the Arduino IDE fall under the customary `~/Documents/Arduino/` projects folder.
+* Projects created by PlatformIO would fall under its customary `~/Documents/PlatformIO/` projects folder.
 
 While we cannot easily change Arduino IDE to link with files located in PlatformIO, PIO is flexible enough allowing it to link with `.ino` sketches in the Arduino projects folder.
 
@@ -117,7 +118,7 @@ While we cannot easily change Arduino IDE to link with files located in Platform
 						main.cpp
 ```
 * `Arduino/`: the customary Arduino IDE projects folder.  Note the shared `libraries` folder.
-* `Platform/`: the customary PlatformIO (PIO) projects folder.  
+* `PlatformIO/`: the customary PlatformIO (PIO) projects folder.  
 
 ### Alternate Creation Procedure
 1. Follow the [Creation Procedure](#creation-procedure), above, and deviate folder locations to suit your needs.
@@ -136,4 +137,4 @@ While we cannot easily change Arduino IDE to link with files located in Platform
 		```
 		#include "WonderWidget.ino"
 		```
-4. File includes in the `WonderWdiget.ino` file still work the same way, too.  This is because the build-flags provides the include path and tell PlatformIO where to look for files.
+4. File includes in the `WonderWidget.ino` file still work the same way, too.  This is because the build-flags provides the include path and tell PlatformIO where to look for files.

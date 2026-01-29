@@ -1,3 +1,4 @@
+
 # Hybrid Repository
 A hybrid repository of projects for Arduino IDE and PlatformIO using a single source code file set.
 
@@ -75,7 +76,7 @@ Given you're starting with an Arduino sketch you both want to share, and develop
 * The .ino file can now be opened by right-clicking the `#include` file name `"WonderWidget.ino"` in `main.cpp` and selecting `Go To Definition`
 * Library dependencies are resolved by loading libraries through `PIO > Libraries`
 
-### Usage Model A
+### Usage
 * GitHub
 	* Users may push changes to their GitHub repository, and manage the project all within the local parent GitHub repository folder.
 * Arduino IDE
